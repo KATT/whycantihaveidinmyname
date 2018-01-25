@@ -6,6 +6,11 @@ type Post {
   title: String!
   text: String!
   author: User!
+
+  canMyIdBeReceived:String!
+  rewardId:String!
+  myId:String!
+  uuid: String! @unique
 }
 
 type User {
