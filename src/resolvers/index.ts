@@ -2,8 +2,9 @@ import { Query } from './Query'
 import { auth } from './Mutation/auth'
 import { post } from './Mutation/post'
 import { AuthPayload } from './AuthPayload'
+import {extractFragmentReplacements} from 'prisma-binding'
 
-export default {
+export const resolvers = {
   Query,
   Mutation: {
     ...auth,
@@ -23,3 +24,5 @@ export default {
     }
   }
 }
+export const fragmentReplacements = extractFragmentReplacements(resolvers)
+
