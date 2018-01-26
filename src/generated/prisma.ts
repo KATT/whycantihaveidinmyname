@@ -17,7 +17,7 @@ type Post implements Node {
   title: String!
   text: String!
   author(where: UserWhereInput): User!
-  myDependentField: String!
+  categoryName: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -95,7 +95,7 @@ input PostCreateInput {
   isPublished: Boolean
   title: String!
   text: String!
-  myDependentField: String!
+  categoryName: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -112,7 +112,7 @@ input PostCreateWithoutAuthorInput {
   isPublished: Boolean
   title: String!
   text: String!
-  myDependentField: String!
+  categoryName: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -137,8 +137,8 @@ enum PostOrderByInput {
   title_DESC
   text_ASC
   text_DESC
-  myDependentField_ASC
-  myDependentField_DESC
+  categoryName_ASC
+  categoryName_DESC
   canMyIdBeReceived_ASC
   canMyIdBeReceived_DESC
   rewardId_ASC
@@ -156,7 +156,7 @@ type PostPreviousValues {
   isPublished: Boolean!
   title: String!
   text: String!
-  myDependentField: String!
+  categoryName: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -184,7 +184,7 @@ input PostUpdateInput {
   isPublished: Boolean
   title: String
   text: String
-  myDependentField: String
+  categoryName: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -205,7 +205,7 @@ input PostUpdateWithoutAuthorDataInput {
   isPublished: Boolean
   title: String
   text: String
-  myDependentField: String
+  categoryName: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -286,20 +286,20 @@ input PostWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
-  myDependentField: String
-  myDependentField_not: String
-  myDependentField_in: [String!]
-  myDependentField_not_in: [String!]
-  myDependentField_lt: String
-  myDependentField_lte: String
-  myDependentField_gt: String
-  myDependentField_gte: String
-  myDependentField_contains: String
-  myDependentField_not_contains: String
-  myDependentField_starts_with: String
-  myDependentField_not_starts_with: String
-  myDependentField_ends_with: String
-  myDependentField_not_ends_with: String
+  categoryName: String
+  categoryName_not: String
+  categoryName_in: [String!]
+  categoryName_not_in: [String!]
+  categoryName_lt: String
+  categoryName_lte: String
+  categoryName_gt: String
+  categoryName_gte: String
+  categoryName_contains: String
+  categoryName_not_contains: String
+  categoryName_starts_with: String
+  categoryName_not_starts_with: String
+  categoryName_ends_with: String
+  categoryName_not_ends_with: String
   canMyIdBeReceived: String
   canMyIdBeReceived_not: String
   canMyIdBeReceived_in: [String!]
@@ -563,8 +563,8 @@ export type PostOrderByInput =
   'title_DESC' |
   'text_ASC' |
   'text_DESC' |
-  'myDependentField_ASC' |
-  'myDependentField_DESC' |
+  'categoryName_ASC' |
+  'categoryName_DESC' |
   'canMyIdBeReceived_ASC' |
   'canMyIdBeReceived_DESC' |
   'rewardId_ASC' |
@@ -662,20 +662,20 @@ export interface PostWhereInput {
   text_not_starts_with?: String
   text_ends_with?: String
   text_not_ends_with?: String
-  myDependentField?: String
-  myDependentField_not?: String
-  myDependentField_in?: String[] | String
-  myDependentField_not_in?: String[] | String
-  myDependentField_lt?: String
-  myDependentField_lte?: String
-  myDependentField_gt?: String
-  myDependentField_gte?: String
-  myDependentField_contains?: String
-  myDependentField_not_contains?: String
-  myDependentField_starts_with?: String
-  myDependentField_not_starts_with?: String
-  myDependentField_ends_with?: String
-  myDependentField_not_ends_with?: String
+  categoryName?: String
+  categoryName_not?: String
+  categoryName_in?: String[] | String
+  categoryName_not_in?: String[] | String
+  categoryName_lt?: String
+  categoryName_lte?: String
+  categoryName_gt?: String
+  categoryName_gte?: String
+  categoryName_contains?: String
+  categoryName_not_contains?: String
+  categoryName_starts_with?: String
+  categoryName_not_starts_with?: String
+  categoryName_ends_with?: String
+  categoryName_not_ends_with?: String
   canMyIdBeReceived?: String
   canMyIdBeReceived_not?: String
   canMyIdBeReceived_in?: String[] | String
@@ -817,7 +817,7 @@ export interface PostUpdateInput {
   isPublished?: Boolean
   title?: String
   text?: String
-  myDependentField?: String
+  categoryName?: String
   canMyIdBeReceived?: String
   rewardId?: String
   myId?: String
@@ -836,7 +836,7 @@ export interface PostCreateWithoutAuthorInput {
   isPublished?: Boolean
   title: String
   text: String
-  myDependentField: String
+  categoryName: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -874,7 +874,7 @@ export interface PostCreateInput {
   isPublished?: Boolean
   title: String
   text: String
-  myDependentField: String
+  categoryName: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -923,7 +923,7 @@ export interface PostUpdateWithoutAuthorDataInput {
   isPublished?: Boolean
   title?: String
   text?: String
-  myDependentField?: String
+  categoryName?: String
   canMyIdBeReceived?: String
   rewardId?: String
   myId?: String
@@ -970,7 +970,7 @@ export interface Post extends Node {
   title: String
   text: String
   author: User
-  myDependentField: String
+  categoryName: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -1002,7 +1002,7 @@ export interface PostPreviousValues {
   isPublished: Boolean
   title: String
   text: String
-  myDependentField: String
+  categoryName: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
