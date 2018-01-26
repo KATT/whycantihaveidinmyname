@@ -13,6 +13,7 @@ type Post implements Node {
   title: String!
   text: String!
   author(where: UserWhereInput): User!
+  category: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -90,6 +91,7 @@ input PostCreateInput {
   isPublished: Boolean
   title: String!
   text: String!
+  category: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -106,6 +108,7 @@ input PostCreateWithoutAuthorInput {
   isPublished: Boolean
   title: String!
   text: String!
+  category: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -130,6 +133,8 @@ enum PostOrderByInput {
   title_DESC
   text_ASC
   text_DESC
+  category_ASC
+  category_DESC
   canMyIdBeReceived_ASC
   canMyIdBeReceived_DESC
   rewardId_ASC
@@ -147,6 +152,7 @@ type PostPreviousValues {
   isPublished: Boolean!
   title: String!
   text: String!
+  category: String!
   canMyIdBeReceived: String!
   rewardId: String!
   myId: String!
@@ -174,6 +180,7 @@ input PostUpdateInput {
   isPublished: Boolean
   title: String
   text: String
+  category: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -194,6 +201,7 @@ input PostUpdateWithoutAuthorDataInput {
   isPublished: Boolean
   title: String
   text: String
+  category: String
   canMyIdBeReceived: String
   rewardId: String
   myId: String
@@ -274,6 +282,20 @@ input PostWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
+  category: String
+  category_not: String
+  category_in: [String!]
+  category_not_in: [String!]
+  category_lt: String
+  category_lte: String
+  category_gt: String
+  category_gte: String
+  category_contains: String
+  category_not_contains: String
+  category_starts_with: String
+  category_not_starts_with: String
+  category_ends_with: String
+  category_not_ends_with: String
   canMyIdBeReceived: String
   canMyIdBeReceived_not: String
   canMyIdBeReceived_in: [String!]

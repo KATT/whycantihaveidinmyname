@@ -10,4 +10,16 @@ export default {
     ...post,
   },
   AuthPayload,
+  Post: {
+    category: {
+      fragment: 'fragment PostFragment on Post { category }',
+      resolve: (source, args, context, info) => {
+        console.log('🗒️', { source })
+        return {
+          name: source.category,
+          popularity: Math.random(),
+        }
+      }
+    }
+  }
 }

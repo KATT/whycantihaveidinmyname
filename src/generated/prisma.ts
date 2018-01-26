@@ -17,6 +17,11 @@ type Post implements Node {
   title: String!
   text: String!
   author(where: UserWhereInput): User!
+  myDependentField: String!
+  canMyIdBeReceived: String!
+  rewardId: String!
+  myId: String!
+  uuid: String!
 }
 
 type User implements Node {
@@ -90,6 +95,11 @@ input PostCreateInput {
   isPublished: Boolean
   title: String!
   text: String!
+  myDependentField: String!
+  canMyIdBeReceived: String!
+  rewardId: String!
+  myId: String!
+  uuid: String!
   author: UserCreateOneWithoutPostsInput!
 }
 
@@ -102,6 +112,11 @@ input PostCreateWithoutAuthorInput {
   isPublished: Boolean
   title: String!
   text: String!
+  myDependentField: String!
+  canMyIdBeReceived: String!
+  rewardId: String!
+  myId: String!
+  uuid: String!
 }
 
 type PostEdge {
@@ -122,6 +137,16 @@ enum PostOrderByInput {
   title_DESC
   text_ASC
   text_DESC
+  myDependentField_ASC
+  myDependentField_DESC
+  canMyIdBeReceived_ASC
+  canMyIdBeReceived_DESC
+  rewardId_ASC
+  rewardId_DESC
+  myId_ASC
+  myId_DESC
+  uuid_ASC
+  uuid_DESC
 }
 
 type PostPreviousValues {
@@ -131,6 +156,11 @@ type PostPreviousValues {
   isPublished: Boolean!
   title: String!
   text: String!
+  myDependentField: String!
+  canMyIdBeReceived: String!
+  rewardId: String!
+  myId: String!
+  uuid: String!
 }
 
 type PostSubscriptionPayload {
@@ -154,6 +184,11 @@ input PostUpdateInput {
   isPublished: Boolean
   title: String
   text: String
+  myDependentField: String
+  canMyIdBeReceived: String
+  rewardId: String
+  myId: String
+  uuid: String
   author: UserUpdateOneWithoutPostsInput
 }
 
@@ -170,6 +205,11 @@ input PostUpdateWithoutAuthorDataInput {
   isPublished: Boolean
   title: String
   text: String
+  myDependentField: String
+  canMyIdBeReceived: String
+  rewardId: String
+  myId: String
+  uuid: String
 }
 
 input PostUpdateWithoutAuthorInput {
@@ -246,11 +286,82 @@ input PostWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
+  myDependentField: String
+  myDependentField_not: String
+  myDependentField_in: [String!]
+  myDependentField_not_in: [String!]
+  myDependentField_lt: String
+  myDependentField_lte: String
+  myDependentField_gt: String
+  myDependentField_gte: String
+  myDependentField_contains: String
+  myDependentField_not_contains: String
+  myDependentField_starts_with: String
+  myDependentField_not_starts_with: String
+  myDependentField_ends_with: String
+  myDependentField_not_ends_with: String
+  canMyIdBeReceived: String
+  canMyIdBeReceived_not: String
+  canMyIdBeReceived_in: [String!]
+  canMyIdBeReceived_not_in: [String!]
+  canMyIdBeReceived_lt: String
+  canMyIdBeReceived_lte: String
+  canMyIdBeReceived_gt: String
+  canMyIdBeReceived_gte: String
+  canMyIdBeReceived_contains: String
+  canMyIdBeReceived_not_contains: String
+  canMyIdBeReceived_starts_with: String
+  canMyIdBeReceived_not_starts_with: String
+  canMyIdBeReceived_ends_with: String
+  canMyIdBeReceived_not_ends_with: String
+  rewardId: String
+  rewardId_not: String
+  rewardId_in: [String!]
+  rewardId_not_in: [String!]
+  rewardId_lt: String
+  rewardId_lte: String
+  rewardId_gt: String
+  rewardId_gte: String
+  rewardId_contains: String
+  rewardId_not_contains: String
+  rewardId_starts_with: String
+  rewardId_not_starts_with: String
+  rewardId_ends_with: String
+  rewardId_not_ends_with: String
+  myId: String
+  myId_not: String
+  myId_in: [String!]
+  myId_not_in: [String!]
+  myId_lt: String
+  myId_lte: String
+  myId_gt: String
+  myId_gte: String
+  myId_contains: String
+  myId_not_contains: String
+  myId_starts_with: String
+  myId_not_starts_with: String
+  myId_ends_with: String
+  myId_not_ends_with: String
+  uuid: String
+  uuid_not: String
+  uuid_in: [String!]
+  uuid_not_in: [String!]
+  uuid_lt: String
+  uuid_lte: String
+  uuid_gt: String
+  uuid_gte: String
+  uuid_contains: String
+  uuid_not_contains: String
+  uuid_starts_with: String
+  uuid_not_starts_with: String
+  uuid_ends_with: String
+  uuid_not_ends_with: String
   author: UserWhereInput
 }
 
 input PostWhereUniqueInput {
   id: ID
+  uuid: String
 }
 
 type Query {
@@ -451,7 +562,17 @@ export type PostOrderByInput =
   'title_ASC' |
   'title_DESC' |
   'text_ASC' |
-  'text_DESC'
+  'text_DESC' |
+  'myDependentField_ASC' |
+  'myDependentField_DESC' |
+  'canMyIdBeReceived_ASC' |
+  'canMyIdBeReceived_DESC' |
+  'rewardId_ASC' |
+  'rewardId_DESC' |
+  'myId_ASC' |
+  'myId_DESC' |
+  'uuid_ASC' |
+  'uuid_DESC'
 
 export type UserOrderByInput = 
   'id_ASC' |
@@ -541,6 +662,76 @@ export interface PostWhereInput {
   text_not_starts_with?: String
   text_ends_with?: String
   text_not_ends_with?: String
+  myDependentField?: String
+  myDependentField_not?: String
+  myDependentField_in?: String[] | String
+  myDependentField_not_in?: String[] | String
+  myDependentField_lt?: String
+  myDependentField_lte?: String
+  myDependentField_gt?: String
+  myDependentField_gte?: String
+  myDependentField_contains?: String
+  myDependentField_not_contains?: String
+  myDependentField_starts_with?: String
+  myDependentField_not_starts_with?: String
+  myDependentField_ends_with?: String
+  myDependentField_not_ends_with?: String
+  canMyIdBeReceived?: String
+  canMyIdBeReceived_not?: String
+  canMyIdBeReceived_in?: String[] | String
+  canMyIdBeReceived_not_in?: String[] | String
+  canMyIdBeReceived_lt?: String
+  canMyIdBeReceived_lte?: String
+  canMyIdBeReceived_gt?: String
+  canMyIdBeReceived_gte?: String
+  canMyIdBeReceived_contains?: String
+  canMyIdBeReceived_not_contains?: String
+  canMyIdBeReceived_starts_with?: String
+  canMyIdBeReceived_not_starts_with?: String
+  canMyIdBeReceived_ends_with?: String
+  canMyIdBeReceived_not_ends_with?: String
+  rewardId?: String
+  rewardId_not?: String
+  rewardId_in?: String[] | String
+  rewardId_not_in?: String[] | String
+  rewardId_lt?: String
+  rewardId_lte?: String
+  rewardId_gt?: String
+  rewardId_gte?: String
+  rewardId_contains?: String
+  rewardId_not_contains?: String
+  rewardId_starts_with?: String
+  rewardId_not_starts_with?: String
+  rewardId_ends_with?: String
+  rewardId_not_ends_with?: String
+  myId?: String
+  myId_not?: String
+  myId_in?: String[] | String
+  myId_not_in?: String[] | String
+  myId_lt?: String
+  myId_lte?: String
+  myId_gt?: String
+  myId_gte?: String
+  myId_contains?: String
+  myId_not_contains?: String
+  myId_starts_with?: String
+  myId_not_starts_with?: String
+  myId_ends_with?: String
+  myId_not_ends_with?: String
+  uuid?: String
+  uuid_not?: String
+  uuid_in?: String[] | String
+  uuid_not_in?: String[] | String
+  uuid_lt?: String
+  uuid_lte?: String
+  uuid_gt?: String
+  uuid_gte?: String
+  uuid_contains?: String
+  uuid_not_contains?: String
+  uuid_starts_with?: String
+  uuid_not_starts_with?: String
+  uuid_ends_with?: String
+  uuid_not_ends_with?: String
   author?: UserWhereInput
 }
 
@@ -626,6 +817,11 @@ export interface PostUpdateInput {
   isPublished?: Boolean
   title?: String
   text?: String
+  myDependentField?: String
+  canMyIdBeReceived?: String
+  rewardId?: String
+  myId?: String
+  uuid?: String
   author?: UserUpdateOneWithoutPostsInput
 }
 
@@ -640,6 +836,11 @@ export interface PostCreateWithoutAuthorInput {
   isPublished?: Boolean
   title: String
   text: String
+  myDependentField: String
+  canMyIdBeReceived: String
+  rewardId: String
+  myId: String
+  uuid: String
 }
 
 export interface UserUpsertWithoutPostsInput {
@@ -666,12 +867,18 @@ export interface UserUpdateWithoutPostsDataInput {
 
 export interface PostWhereUniqueInput {
   id?: ID_Input
+  uuid?: String
 }
 
 export interface PostCreateInput {
   isPublished?: Boolean
   title: String
   text: String
+  myDependentField: String
+  canMyIdBeReceived: String
+  rewardId: String
+  myId: String
+  uuid: String
   author: UserCreateOneWithoutPostsInput
 }
 
@@ -716,6 +923,11 @@ export interface PostUpdateWithoutAuthorDataInput {
   isPublished?: Boolean
   title?: String
   text?: String
+  myDependentField?: String
+  canMyIdBeReceived?: String
+  rewardId?: String
+  myId?: String
+  uuid?: String
 }
 
 export interface UserWhereUniqueInput {
@@ -758,6 +970,11 @@ export interface Post extends Node {
   title: String
   text: String
   author: User
+  myDependentField: String
+  canMyIdBeReceived: String
+  rewardId: String
+  myId: String
+  uuid: String
 }
 
 export interface PageInfo {
@@ -785,6 +1002,11 @@ export interface PostPreviousValues {
   isPublished: Boolean
   title: String
   text: String
+  myDependentField: String
+  canMyIdBeReceived: String
+  rewardId: String
+  myId: String
+  uuid: String
 }
 
 export interface User extends Node {

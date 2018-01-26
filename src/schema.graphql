@@ -1,4 +1,26 @@
-# import Post from "./generated/prisma.graphql"
+# import UserWhereInput, User from "./generated/prisma.graphql"
+
+type Category {
+  name: String!
+  popularity: Float
+}
+
+type Post implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  isPublished: Boolean!
+  title: String!
+  text: String!
+  author(where: UserWhereInput): User!
+  canMyIdBeReceived: String!
+  rewardId: String!
+  myId: String!
+  uuid: String!
+
+  category: Category!
+}
+
 
 type Query {
   feed: [Post!]!

@@ -8,6 +8,7 @@ mutation {
         title: "Hello World"
         text: "This is my first blog post ever!"
         isPublished: true,
+        category: "cats"
         canMyIdBeReceived: "64d0b840-f200-4414-8d29-d5b0928f2230"
         rewardId: "64d0b840-f200-4414-8d29-d5b0928f2230"
         myId: "64d0b840-f200-4414-8d29-d5b0928f2230"
@@ -16,6 +17,7 @@ mutation {
         title: "My Second Post"
         text: "My first post was good, but this one is better!"
         isPublished: true
+        category: "music"
         canMyIdBeReceived: "4fdd3b1d-a5f7-4316-928a-90e78846fd57"
         rewardId: "4fdd3b1d-a5f7-4316-928a-90e78846fd57"
         myId: "4fdd3b1d-a5f7-4316-928a-90e78846fd57"
@@ -24,6 +26,7 @@ mutation {
         title: "Solving World Hunger"
         text: "This is a draft..."
         isPublished: false
+        category: "art"
         canMyIdBeReceived: "949e780b-9246-4b40-bdc6-fc5def5f22be"
         rewardId: "949e780b-9246-4b40-bdc6-fc5def5f22be"
         myId: "949e780b-9246-4b40-bdc6-fc5def5f22be"
