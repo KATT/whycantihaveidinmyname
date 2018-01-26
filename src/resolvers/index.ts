@@ -12,11 +12,11 @@ export default {
   AuthPayload,
   Post: {
     category: {
-      fragment: 'fragment PostFragment on Post { category }',
+      fragment: 'fragment PostFragment on Post { categoryName }',
       resolve: (source, args, context, info) => {
         console.log('🗒️', { source })
         return {
-          name: source.category,
+          name: source.categoryName,
           popularity: Math.random(),
         }
       }

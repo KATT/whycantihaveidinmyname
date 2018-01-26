@@ -6,7 +6,7 @@ type Post {
   title: String!
   text: String!
   author: User!
-  category: String!
+  categoryName: String!
 
   canMyIdBeReceived:String!
   rewardId:String!
