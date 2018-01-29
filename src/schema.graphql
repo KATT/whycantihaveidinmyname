@@ -18,10 +18,8 @@ type Post implements Node {
   myId: String!
   uuid: String!
 
-  categoryName: String!
   category: Category!
 }
-
 
 type Query {
   feed: [Post!]!
@@ -30,10 +28,18 @@ type Query {
   me: User
 }
 
+input UserPostCreateInput {
+  isPublished: Boolean
+  title: String!
+  text: String!
+  categoryName: String!
+}
+
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
   createDraft(title: String!, text: String!): Post!
+  createUserPost(data: UserPostCreateInput): Post!
   publish(id: ID!): Post!
   deletePost(id: ID!): Post!
 }
