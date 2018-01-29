@@ -15,7 +15,6 @@ export const resolvers = {
     category: {
       fragment: 'fragment PostFragment on Post { categoryName }',
       resolve: (source, args, context, info) => {
-        console.log('🗒️', { source })
         return {
           name: source.categoryName,
           popularity: Math.random(),
