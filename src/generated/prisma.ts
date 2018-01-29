@@ -18,10 +18,6 @@ type Post implements Node {
   text: String!
   author(where: UserWhereInput): User!
   categoryName: String!
-  canMyIdBeReceived: String!
-  rewardId: String!
-  myId: String!
-  uuid: String!
 }
 
 type User implements Node {
@@ -96,10 +92,6 @@ input PostCreateInput {
   title: String!
   text: String!
   categoryName: String!
-  canMyIdBeReceived: String!
-  rewardId: String!
-  myId: String!
-  uuid: String!
   author: UserCreateOneWithoutPostsInput!
 }
 
@@ -113,10 +105,6 @@ input PostCreateWithoutAuthorInput {
   title: String!
   text: String!
   categoryName: String!
-  canMyIdBeReceived: String!
-  rewardId: String!
-  myId: String!
-  uuid: String!
 }
 
 type PostEdge {
@@ -139,14 +127,6 @@ enum PostOrderByInput {
   text_DESC
   categoryName_ASC
   categoryName_DESC
-  canMyIdBeReceived_ASC
-  canMyIdBeReceived_DESC
-  rewardId_ASC
-  rewardId_DESC
-  myId_ASC
-  myId_DESC
-  uuid_ASC
-  uuid_DESC
 }
 
 type PostPreviousValues {
@@ -157,10 +137,6 @@ type PostPreviousValues {
   title: String!
   text: String!
   categoryName: String!
-  canMyIdBeReceived: String!
-  rewardId: String!
-  myId: String!
-  uuid: String!
 }
 
 type PostSubscriptionPayload {
@@ -185,10 +161,6 @@ input PostUpdateInput {
   title: String
   text: String
   categoryName: String
-  canMyIdBeReceived: String
-  rewardId: String
-  myId: String
-  uuid: String
   author: UserUpdateOneWithoutPostsInput
 }
 
@@ -206,10 +178,6 @@ input PostUpdateWithoutAuthorDataInput {
   title: String
   text: String
   categoryName: String
-  canMyIdBeReceived: String
-  rewardId: String
-  myId: String
-  uuid: String
 }
 
 input PostUpdateWithoutAuthorInput {
@@ -300,68 +268,11 @@ input PostWhereInput {
   categoryName_not_starts_with: String
   categoryName_ends_with: String
   categoryName_not_ends_with: String
-  canMyIdBeReceived: String
-  canMyIdBeReceived_not: String
-  canMyIdBeReceived_in: [String!]
-  canMyIdBeReceived_not_in: [String!]
-  canMyIdBeReceived_lt: String
-  canMyIdBeReceived_lte: String
-  canMyIdBeReceived_gt: String
-  canMyIdBeReceived_gte: String
-  canMyIdBeReceived_contains: String
-  canMyIdBeReceived_not_contains: String
-  canMyIdBeReceived_starts_with: String
-  canMyIdBeReceived_not_starts_with: String
-  canMyIdBeReceived_ends_with: String
-  canMyIdBeReceived_not_ends_with: String
-  rewardId: String
-  rewardId_not: String
-  rewardId_in: [String!]
-  rewardId_not_in: [String!]
-  rewardId_lt: String
-  rewardId_lte: String
-  rewardId_gt: String
-  rewardId_gte: String
-  rewardId_contains: String
-  rewardId_not_contains: String
-  rewardId_starts_with: String
-  rewardId_not_starts_with: String
-  rewardId_ends_with: String
-  rewardId_not_ends_with: String
-  myId: String
-  myId_not: String
-  myId_in: [String!]
-  myId_not_in: [String!]
-  myId_lt: String
-  myId_lte: String
-  myId_gt: String
-  myId_gte: String
-  myId_contains: String
-  myId_not_contains: String
-  myId_starts_with: String
-  myId_not_starts_with: String
-  myId_ends_with: String
-  myId_not_ends_with: String
-  uuid: String
-  uuid_not: String
-  uuid_in: [String!]
-  uuid_not_in: [String!]
-  uuid_lt: String
-  uuid_lte: String
-  uuid_gt: String
-  uuid_gte: String
-  uuid_contains: String
-  uuid_not_contains: String
-  uuid_starts_with: String
-  uuid_not_starts_with: String
-  uuid_ends_with: String
-  uuid_not_ends_with: String
   author: UserWhereInput
 }
 
 input PostWhereUniqueInput {
   id: ID
-  uuid: String
 }
 
 type Query {
@@ -564,15 +475,7 @@ export type PostOrderByInput =
   'text_ASC' |
   'text_DESC' |
   'categoryName_ASC' |
-  'categoryName_DESC' |
-  'canMyIdBeReceived_ASC' |
-  'canMyIdBeReceived_DESC' |
-  'rewardId_ASC' |
-  'rewardId_DESC' |
-  'myId_ASC' |
-  'myId_DESC' |
-  'uuid_ASC' |
-  'uuid_DESC'
+  'categoryName_DESC'
 
 export type UserOrderByInput = 
   'id_ASC' |
@@ -676,62 +579,6 @@ export interface PostWhereInput {
   categoryName_not_starts_with?: String
   categoryName_ends_with?: String
   categoryName_not_ends_with?: String
-  canMyIdBeReceived?: String
-  canMyIdBeReceived_not?: String
-  canMyIdBeReceived_in?: String[] | String
-  canMyIdBeReceived_not_in?: String[] | String
-  canMyIdBeReceived_lt?: String
-  canMyIdBeReceived_lte?: String
-  canMyIdBeReceived_gt?: String
-  canMyIdBeReceived_gte?: String
-  canMyIdBeReceived_contains?: String
-  canMyIdBeReceived_not_contains?: String
-  canMyIdBeReceived_starts_with?: String
-  canMyIdBeReceived_not_starts_with?: String
-  canMyIdBeReceived_ends_with?: String
-  canMyIdBeReceived_not_ends_with?: String
-  rewardId?: String
-  rewardId_not?: String
-  rewardId_in?: String[] | String
-  rewardId_not_in?: String[] | String
-  rewardId_lt?: String
-  rewardId_lte?: String
-  rewardId_gt?: String
-  rewardId_gte?: String
-  rewardId_contains?: String
-  rewardId_not_contains?: String
-  rewardId_starts_with?: String
-  rewardId_not_starts_with?: String
-  rewardId_ends_with?: String
-  rewardId_not_ends_with?: String
-  myId?: String
-  myId_not?: String
-  myId_in?: String[] | String
-  myId_not_in?: String[] | String
-  myId_lt?: String
-  myId_lte?: String
-  myId_gt?: String
-  myId_gte?: String
-  myId_contains?: String
-  myId_not_contains?: String
-  myId_starts_with?: String
-  myId_not_starts_with?: String
-  myId_ends_with?: String
-  myId_not_ends_with?: String
-  uuid?: String
-  uuid_not?: String
-  uuid_in?: String[] | String
-  uuid_not_in?: String[] | String
-  uuid_lt?: String
-  uuid_lte?: String
-  uuid_gt?: String
-  uuid_gte?: String
-  uuid_contains?: String
-  uuid_not_contains?: String
-  uuid_starts_with?: String
-  uuid_not_starts_with?: String
-  uuid_ends_with?: String
-  uuid_not_ends_with?: String
   author?: UserWhereInput
 }
 
@@ -818,10 +665,6 @@ export interface PostUpdateInput {
   title?: String
   text?: String
   categoryName?: String
-  canMyIdBeReceived?: String
-  rewardId?: String
-  myId?: String
-  uuid?: String
   author?: UserUpdateOneWithoutPostsInput
 }
 
@@ -837,10 +680,6 @@ export interface PostCreateWithoutAuthorInput {
   title: String
   text: String
   categoryName: String
-  canMyIdBeReceived: String
-  rewardId: String
-  myId: String
-  uuid: String
 }
 
 export interface UserUpsertWithoutPostsInput {
@@ -867,7 +706,6 @@ export interface UserUpdateWithoutPostsDataInput {
 
 export interface PostWhereUniqueInput {
   id?: ID_Input
-  uuid?: String
 }
 
 export interface PostCreateInput {
@@ -875,10 +713,6 @@ export interface PostCreateInput {
   title: String
   text: String
   categoryName: String
-  canMyIdBeReceived: String
-  rewardId: String
-  myId: String
-  uuid: String
   author: UserCreateOneWithoutPostsInput
 }
 
@@ -924,10 +758,6 @@ export interface PostUpdateWithoutAuthorDataInput {
   title?: String
   text?: String
   categoryName?: String
-  canMyIdBeReceived?: String
-  rewardId?: String
-  myId?: String
-  uuid?: String
 }
 
 export interface UserWhereUniqueInput {
@@ -971,10 +801,6 @@ export interface Post extends Node {
   text: String
   author: User
   categoryName: String
-  canMyIdBeReceived: String
-  rewardId: String
-  myId: String
-  uuid: String
 }
 
 export interface PageInfo {
@@ -1003,10 +829,6 @@ export interface PostPreviousValues {
   title: String
   text: String
   categoryName: String
-  canMyIdBeReceived: String
-  rewardId: String
-  myId: String
-  uuid: String
 }
 
 export interface User extends Node {
